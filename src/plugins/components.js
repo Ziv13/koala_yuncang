@@ -1,21 +1,21 @@
-// mint-ui UI
-import {Button, Tabbar, TabItem, Header, Cell, Swipe, SwipeItem,Search} from 'mint-ui'
-
-// 字体图标
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faHome, faShoppingCart, faUser, faChevronLeft, faEquals,faIdBadge} from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-// 添加具体的字体图标
-library.add(faHome, faShoppingCart, faUser, faChevronLeft, faEquals,faIdBadge)
+// vant UI
+import {Button, Tabbar, TabbarItem, Cell, Search,Icon,Swipe, SwipeItem, Lazyload,NoticeBar,tag,Row, Col } from 'vant'
+import 'vant/lib/icon/local.css';
+import Vue from 'vue';
+Vue.use(Lazyload);
 export default (Vue) => {
-  Vue.component('font-awesome-icon', FontAwesomeIcon)
   Vue.component(Button.name, Button)
   Vue.component(Tabbar.name, Tabbar)
-  Vue.component(TabItem.name, TabItem)
-  Vue.component(Header.name, Header)
+  Vue.component(TabbarItem.name, TabbarItem)
   Vue.component(Cell.name, Cell)
+  Vue.component(Search.name, Search)
+  Vue.component(Icon.name, Icon)
   Vue.component(Swipe.name, Swipe)
   Vue.component(SwipeItem.name, SwipeItem)
-  Vue.component(Search.name, Search)
+  Vue.component(NoticeBar.name, NoticeBar)
+  Vue.component(tag.name, tag)
+  Vue.component(Row.name, Row)
+  Vue.component(Col.name, Col)
+
 
 }
