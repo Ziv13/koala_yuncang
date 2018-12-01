@@ -10,7 +10,7 @@
               </van-swipe-item>
           </van-swipe>
           <ul class="navbar">
-            <li v-for="item in navlist" >
+            <li v-for="item in navList" >
               <img  v-lazy="item.img" >
               <span>{{item.text}}</span>
             </li>
@@ -21,27 +21,58 @@
               </div>
               <div class="notice-bar">
                   <van-notice-bar :text="text" left-icon="http://pic.sfont.cn/svg/img/ff72c8.svg"/>
-              </div>
-             
-              
+              </div> 
           </div>
-          <ul>
-              <li v-for="(item,idx) in sellerlist" :key="item.idx" class="bestSellerList">
-                  <van-row gutter="20" >
-                      <van-col span="8" class="img-box">
-                        <img v-lazy="item.img" class="list-img" >
-                      </van-col>
-                      <van-col span="16" class="list-info">
-                        <span class="description">{{item.description}}</span>
-                        <van-tag type="primary">{{item.mark}}</van-tag>
-                        <span class="bestPriceText">{{bestPriceText}}&nbsp;&nbsp;&yen;{{item.bestPrice}}</span>
-                        <span class="priceText">{{priceText}}&nbsp;&nbsp;<del>{{item.price}}</del></span>
-                      </van-col>
+          <div class="sellerListCont">
+              <div class="sellerListTitle">
+                  <van-row>
+                      <van-col span="6" offset="10" class="titleCont">畅销榜单</van-col>
+                      <van-col span="6" offset="2">查看更多<van-icon class-prefix="iconfont" name="gengduo" /></van-col>
                   </van-row>
-              </li>
-            </ul>
+              </div>
+              <ul>
+                <li v-for="(item,idx) in sellerList" :key="item.idx" class="bestSellerList">
+                    <van-row gutter="20" >
+                        <van-col span="8" class="img-box">
+                          <img v-lazy="item.img" class="list-img" >
+                        </van-col>
+                        <van-col span="16" class="list-info">
+                          <span class="description">{{item.description}}</span>
+                          <van-tag type="primary">{{item.mark}}</van-tag>
+                          <span class="bestPriceText">{{bestPriceText}}&nbsp;&nbsp;&yen;{{item.bestPrice}}</span>
+                          <span class="priceText">{{priceText}}&nbsp;&nbsp;<del>{{item.price}}</del></span>
+                        </van-col>
+                    </van-row>
+                </li>
+              </ul>
+          </div>
+          <div class="brand-area-cont">
+              <van-row class="brand-area">
+                  <van-col span="6" offset="10" class="titleCont">品牌专区</van-col>
+              </van-row>
+              <ul class="brand-area-bar">
+                  <li v-for="item in brandList" >
+                    <img  v-lazy="item.img" >
+                    <span>{{item.text}}</span>
+                  </li>
+              </ul>
+          </div>
+          <div class="brand-origin-cont">
+              <van-row class="brand-origin">
+                  <van-col span="6" offset="10" class="titleCont">品牌溯源</van-col>
+                  <van-col span="6" offset="2">查看更多<van-icon class-prefix="iconfont" name="gengduo" /></van-col>
+              </van-row>
+              <ul class="brand-origin-bar">
+                  <li v-for="item in brandOriginList" >
+                    <img  v-lazy="item.img" >
+                    <span>{{item.text}}</span>
+                  </li>
+              </ul>
+          </div>
+          
       </div>
-      
+      <div class="footer">
+      </div> 
   </div>
 </template>
 
@@ -64,7 +95,7 @@ export default {
       '/static/img/home/s2.jpg',
       '/static/img/home/s3.jpg',
       ],
-      navlist:[
+      navList:[
         {
           img:'/static/img/home/list1.png',
           text:'今日活动'
@@ -98,7 +129,47 @@ export default {
           text:'直升高级vip'
         }
       ],
-      sellerlist:[
+      brandList:[
+        {
+          img:'/static/img/home/brand1.png',
+          text:'专业呵护肠道安全健康'
+        },
+        {
+          img:'/static/img/home/brand1.png',
+          text:'有机身体护理明星'
+        },
+        {
+          img:'/static/img/home/brand1.png',
+          text:'千万妈妈信赖之选'
+        },
+        {
+          img:'/static/img/home/brand1.png',
+          text:'澳新第一山羊奶品牌'
+        },
+        {
+          img:'/static/img/home/brand1.png',
+          text:'医美级护肤专研'
+        },
+        {
+          img:'/static/img/home/brand1.png',
+          text:'韩国专业SPA护肤'
+        }
+      ],
+      brandOriginList:[
+        {
+          img:'/static/img/home/brandorigin1.png',
+          text:'独探访家范冰冰推荐椰子油产品大营--MELROSE总部'
+        },
+        {
+          img:'/static/img/home/brandorigin1.png',
+          text:'LOVENKINS原材料产地--达尔文探访之旅'
+        },
+        {
+          img:'/static/img/home/brandorigin1.png',
+          text:'独探访家范冰冰推荐椰子油产品大营--MELROSE总部'
+        }
+      ],
+      sellerList:[
         {
           img:'/static/img/home/sellerlist1.png',
           description:'vida Glow 深海鱼胶原蛋白粉多口味可选...',
@@ -128,7 +199,5 @@ export default {
 </script>
 
 <style>
-#home{
-  
-}
+
 </style>
