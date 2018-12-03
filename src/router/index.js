@@ -4,6 +4,9 @@ import Home from '../components/home'
 import Cart from '../components/Cart'
 import Share from '../components/Share'
 import User from '../components/User'
+import Setting from '../components/userPage/Setting'
+import Order from '../components/userPage/Order'
+
 
 Vue.use(Router)
 
@@ -32,7 +35,18 @@ export default new Router({
     {
       path: '/user',
       name: 'User',
-      component: User
+      component: User,
     },
+    {
+      path: '/setting',
+      name: 'Setting',
+      component: Setting
+    },
+    {
+      path: '/order',
+      name: 'Order',
+      component: Order
+    }
+    
   ]
 })

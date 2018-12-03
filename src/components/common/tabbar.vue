@@ -47,7 +47,7 @@ export default {
 <style lang="scss" scoped>
 .tabbar {
   max-width: 720px;
-  margin: 0px auto;
+  margin: 0px auto; 
   z-index: 999;
   background: #f4f3ef;
   height: 1.386rem;

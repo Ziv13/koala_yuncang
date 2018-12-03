@@ -4,9 +4,12 @@
           <div class="setup-page">
             <van-row>
                 <van-col span="6" offset="8" class="titleCont">个人中心</van-col>
-                <van-col span="4" offset="5">
-                  <van-icon class-prefix="iconfont" name="libraryicon04" class="setup-icon"/>
-                </van-col>
+                  <van-col span="4" offset="5" >
+                        <router-link to='setting'>
+                          <van-icon class-prefix="iconfont" name="libraryicon04" class="setup-icon"/>
+                        </router-link>
+                  </van-col>
+                
             </van-row>
           </div>
           <div class="user-info-card">
@@ -65,8 +68,11 @@
       </div>
       <div class="order-cont">
           <van-row class="order-title">
-              <van-col span="6"  class="titleCont">我的订单</van-col>
-              <van-col span="6" offset="12">全部订单<van-icon class-prefix="iconfont" name="gengduo" /></van-col>
+              <router-link to="/order">
+                  <van-col span="6"  class="titleCont">我的订单</van-col>
+                  <van-col span="6" offset="12">全部订单<van-icon class-prefix="iconfont" name="gengduo" /></van-col>
+              </router-link>
+              
           </van-row>
           <ul class="order-bar">
               <li v-for="item in orderList" >
@@ -80,9 +86,9 @@
               <van-col span="6"  class="titleCont">专属服务</van-col>
           </van-row>
           <ul class="service-bar">
-              <li v-for="item in serviceList" >
-                <van-icon class-prefix="iconfont" :name="item.name" />
-                <span>{{item.text}}</span>
+              <li v-for="(item,idx) in serviceList" :key="item.idx">
+                  <van-icon class-prefix="iconfont" :name="item.name" />
+                  <span>{{item.text}}</span>
               </li>
           </ul>
       </div>
@@ -131,39 +137,49 @@ export default {
       serviceList:[
         {
         name:'daifukuan',
-        text:'用户口碑'
+        text:'用户口碑',
+        path: '/koubei'
         },
         {
         name:'daifahuo',
-        text:'地址管理'
+        text:'地址管理',
+        path: '/koubei'
         },
         {
         name:'daishouhuo',
-        text:'财务管理'
+        text:'财务管理',
+        path: '/koubei'
         },
         {
         name:'pinglun',
-        text:'我的主页'
+        text:'我的主页',
+        path: '/koubei'
         },
         {
         name:'tuikuan',
-        text:'我的券'
+        text:'我的券',
+        path: '/koubei'
         },
         {
         name:'daishouhuo',
-        text:'用户口碑收藏'
+        text:'用户口碑收藏',
+        path: '/koubei'
         },
         {
         name:'pinglun',
-        text:'电子门票'
+        text:'电子门票',
+        path: '/koubei'
         },
         {
         name:'tuikuan',
-        text:'我的等级'
+        text:'我的等级',
+        path: '/koubei'
         }
       ]
       
     }
+  },
+  methods:{
   }
 
 }
