@@ -1,6 +1,6 @@
 // vant UI
-import {Button, Tabbar, TabbarItem, Cell, Search,Icon,Swipe, SwipeItem, Lazyload,NoticeBar,
-  tag,Row, Col,NavBar,Tab,Tabs } from 'vant'
+import {Button, Tabbar, TabbarItem,Search, Cell, Badge,Icon,Swipe, SwipeItem, Lazyload,NoticeBar,
+  tag,Row, Col,NavBar,Tab,Tabs,Stepper,SubmitBar,checkbox,Popup,PullRefresh,Toast  } from 'vant'
 // import 'vant/lib/icon/local.css';
 import  '../style/icon/local.css'
 import Vue from 'vue';
@@ -21,8 +21,11 @@ export default (Vue) => {
   Vue.component(NavBar.name, NavBar)
   Vue.component(Tab.name, Tab)
   Vue.component(Tabs.name, Tabs)
-
-
-
+  Vue.component(Stepper.name, Stepper)
+  Vue.component(SubmitBar.name, SubmitBar)
+  Vue.component(checkbox.name, checkbox)
+  Vue.component(Popup.name, Popup)
+  Vue.component(PullRefresh.name, PullRefresh)
+  Vue.component(Toast.name, Toast)
 
 }

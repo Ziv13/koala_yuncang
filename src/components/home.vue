@@ -1,8 +1,24 @@
 <template>
   <div id="home">
-      <div class="searchbox">
-        <van-search placeholder="请输入搜索关键词" v-model="result" />
-      </div>
+      <search-bar>
+            <van-icon class-prefix="iconfont" name="bell" slot="left-icon"></van-icon>
+          <van-icon class-prefix="iconfont" name="search" slot="search-icon"></van-icon>
+          <span slot="search-text" @click="show = true">2018秋冬款女装</span>  
+          <van-icon class-prefix="iconfont" name="ico-category" slot="right-icon"></van-icon>  
+      </search-bar>
+
+      <van-popup v-model="show" position="top" :overlay="false">
+          <div class="popup-cont">
+              <form action="/">
+                <van-search
+                  v-model="value"
+                  placeholder="请输入搜索关键词"
+                  show-action
+                  @cancel="onCancel"
+                />
+              </form>
+          </div>
+      </van-popup>
       <div class="main">
           <van-swipe class="gallery" :autoplay="4000" indicator-color="white">
               <van-swipe-item v-for="(image, index) in images" :key="index">
@@ -78,10 +94,13 @@
 
 <script>
 import '../style/sass/home.scss'
+import SearchBar from '../components/common/searchbar'
 export default {
   name: 'Home',
   data(){
     return{
+      show: false,
+      value: '',
       msg: '首页',
       result:'',
       title:'2018秋冬款女装',
@@ -193,6 +212,12 @@ export default {
     }
   },
   methods:{
+    onCancel(){
+      this.show = false;
+    }
+  },
+  components:{
+    SearchBar
   }
 
 }
