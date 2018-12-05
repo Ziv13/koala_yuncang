@@ -1,7 +1,11 @@
 <template>    
     <div id="search-bar">
         <van-row >
-            <van-col span="2" offset="1" ><slot name="left-icon" class="left-icon"></slot></van-col>
+            <van-col span="3" >
+                <slot name="left-icon" ></slot>
+                <slot name="icon-badge" ></slot>                
+            </van-col>
+
             <div class="search-box">
               <van-col span="1" offset="1"><slot name="search-icon" ></slot></van-col>
               <van-col span="12" offset="2"><slot name="search-text" ></slot></van-col>  

@@ -1,0 +1,37 @@
+{
+   "brandList":[
+    {
+      "img":"/static/img/home/brand1.png",
+      "text":"专业呵护肠道安全健康",
+      "goodsId": "1"
+    },
+    {
+      "img":"/static/img/home/brand1.png",
+      "text":"有机身体护理明星",
+      "goodsId": "2"
+    },
+    {
+      "img":"/static/img/home/brand1.png",
+      "text":"千万妈妈信赖之选",
+      "goodsId": "3"
+    },
+    {
+      "img":"/static/img/home/brand1.png",
+      "text":"澳新第一山羊奶品牌",
+      "goodsId": "4"
+    },
+    {
+      "img":"/static/img/home/brand1.png",
+      "text":"医美级护肤专研",
+      "goodsId": "5"
+    },
+    {
+      "img":"/static/img/home/brand1.png",
+      "text":"韩国专业SPA护肤",
+      "goodsId": "6"
+    }
+  ]
+     
+}
+
+    

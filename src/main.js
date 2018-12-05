@@ -4,6 +4,12 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
+import axios from 'axios'
+import {post,get} from '../server/http.js'
+//定义全局变量
+Vue.prototype.$post=post;
+Vue.prototype.$get=get;
+Vue.prototype.$http=axios
 
 
 // 导入所有全局组件

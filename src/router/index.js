@@ -6,7 +6,9 @@ import Share from '../components/Share'
 import User from '../components/User'
 import Setting from '../components/userPage/Setting'
 import Order from '../components/userPage/Order'
-
+import BrandDetail from '../components/homepage/brandDetail'
+import ItemDetail from '../components/homepage/ItemDetail'
+import Bell from '../components/homepage/Bell'
 
 Vue.use(Router)
 
@@ -36,6 +38,22 @@ export default new Router({
       path: '/user',
       name: 'User',
       component: User,
+    },
+    {
+      path: '/branddetail/:goodsId',
+      name: 'BrandDetail',
+      component: BrandDetail,
+      props: true
+    },
+    {
+      path: '/itemdetail',
+      name: 'ItemDetail',
+      component: ItemDetail
+    },
+    {
+      path: '/bell',
+      name: 'Bell',
+      component: Bell
     },
     {
       path: '/setting',

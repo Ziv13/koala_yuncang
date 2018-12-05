@@ -1,10 +1,11 @@
 <template>
   <div id="home">
       <search-bar>
-            <van-icon class-prefix="iconfont" name="bell" slot="left-icon"></van-icon>
-          <van-icon class-prefix="iconfont" name="search" slot="search-icon"></van-icon>
+          <van-icon class-prefix="iconfont" name="bell" slot="left-icon" class="left-icon" @click="toBell"></van-icon>
+          <span slot="icon-badge" class="icon-badge" @click="toBell">20</span>
+          <van-icon class-prefix="iconfont" name="search" slot="search-icon" ></van-icon>
           <span slot="search-text" @click="show = true">2018秋冬款女装</span>  
-          <van-icon class-prefix="iconfont" name="ico-category" slot="right-icon"></van-icon>  
+          <van-icon class-prefix="iconfont" name="ico-category" slot="right-icon" class="right-icon"></van-icon>  
       </search-bar>
 
       <van-popup v-model="show" position="top" :overlay="false">
@@ -67,7 +68,7 @@
                   <van-col span="6" offset="10" class="titleCont">品牌专区</van-col>
               </van-row>
               <ul class="brand-area-bar">
-                  <li v-for="item in brandList" >
+                  <li v-for="item in brandList" :key="item.goodsId" @click="toDetail(item.goodsId)" >
                     <img  v-lazy="item.img" >
                     <span>{{item.text}}</span>
                   </li>
@@ -79,7 +80,7 @@
                   <van-col span="6" offset="2">查看更多<van-icon class-prefix="iconfont" name="gengduo" /></van-col>
               </van-row>
               <ul class="brand-origin-bar">
-                  <li v-for="item in brandOriginList" >
+                  <li v-for="item in brandOriginList" @click="toItem">
                     <img  v-lazy="item.img" >
                     <span>{{item.text}}</span>
                   </li>
@@ -108,7 +109,7 @@ export default {
       bestPriceText:'含税优惠价',
       priceText:'含税售价',
       ttimg:'/static/img/home/sytt.png',
-      
+      brandList:[],
       images: [
       '/static/img/home/s1.jpg',
       '/static/img/home/s2.jpg',
@@ -146,32 +147,6 @@ export default {
         {
           img:'/static/img/home/list1.png',
           text:'直升高级vip'
-        }
-      ],
-      brandList:[
-        {
-          img:'/static/img/home/brand1.png',
-          text:'专业呵护肠道安全健康'
-        },
-        {
-          img:'/static/img/home/brand1.png',
-          text:'有机身体护理明星'
-        },
-        {
-          img:'/static/img/home/brand1.png',
-          text:'千万妈妈信赖之选'
-        },
-        {
-          img:'/static/img/home/brand1.png',
-          text:'澳新第一山羊奶品牌'
-        },
-        {
-          img:'/static/img/home/brand1.png',
-          text:'医美级护肤专研'
-        },
-        {
-          img:'/static/img/home/brand1.png',
-          text:'韩国专业SPA护肤'
         }
       ],
       brandOriginList:[
@@ -214,8 +189,23 @@ export default {
   methods:{
     onCancel(){
       this.show = false;
+    },
+    toDetail(goodsId){
+        this.$router.push({path: `/branddetail/${goodsId}`})
+    },
+    toItem(){
+        this.$router.push({path: "/itemdetail" })
+    },
+    toBell(){
+      this.$router.push({path: "/bell" })
     }
   },
+  created(){
+    this.$get('../../static/data.json').then(((res) =>{
+      this.brandList =res.brandList;
+    }).bind(this))
+  },
+
   components:{
     SearchBar
   }
